@@ -390,6 +390,14 @@
 <body>
     <div class="container">
         <div class="hero-section">
+            <div style="position: absolute; top: 2rem; right: 2rem;">
+                <select id="languageSelector" style="padding: 0.5rem 1rem; background: hsl(240, 8%, 12%); border: 1px solid hsl(240, 10%, 20%); border-radius: 0.5rem; color: hsl(210, 40%, 98%); font-size: 0.9rem; cursor: pointer;">
+                    <option value="pt-BR">🇧🇷 Português</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="en">🇺🇸 English</option>
+                </select>
+            </div>
+            
             <div class="icons-container">
                 <svg class="icon-pulse" fill="none" stroke="hsl(280, 80%, 60%)" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -401,18 +409,18 @@
             </div>
             
             <h1>MIR4</h1>
-            <h2>Lista de Presença - Clan NA21</h2>
-            <p class="subtitle">Acompanhe a participação dos membros do clan em todos os eventos e atividades</p>
+            <h2 data-i18n="title">Lista de Presença - Clan NA21</h2>
+            <p class="subtitle" data-i18n="subtitle">Acompanhe a participação dos membros do clan em todos os eventos e atividades</p>
         </div>
 
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-card-content">
                     <div>
-                        <div class="stat-label">Total de Jogadores</div>
+                        <div class="stat-label" data-i18n="totalPlayers">Total de Jogadores</div>
                         <div class="stat-value">39</div>
                         <div class="stat-trend" style="color: hsl(215, 20.2%, 65.1%);">
-                            13 ativos • 26 inativos
+                            <span data-i18n="activeInactive">13 ativos • 26 inativos</span>
                         </div>
                     </div>
                     <svg class="stat-icon" fill="none" stroke="hsl(280, 80%, 60%)" stroke-width="2" viewBox="0 0 24 24">
@@ -424,13 +432,13 @@
             <div class="stat-card">
                 <div class="stat-card-content">
                     <div>
-                        <div class="stat-label">Presença Média</div>
+                        <div class="stat-label" data-i18n="avgAttendance">Presença Média</div>
                         <div class="stat-value">91%</div>
                         <div class="stat-trend">
                             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                             </svg>
-                            +5% vs mês anterior
+                            <span data-i18n="vsLastMonth">+5% vs mês anterior</span>
                         </div>
                     </div>
                     <svg class="stat-icon" fill="none" stroke="hsl(200, 80%, 55%)" stroke-width="2" viewBox="0 0 24 24">
@@ -444,7 +452,7 @@
             <div class="stat-card">
                 <div class="stat-card-content">
                     <div>
-                        <div class="stat-label">100% Presença</div>
+                        <div class="stat-label" data-i18n="perfectAttendance">100% Presença</div>
                         <div class="stat-value">8</div>
                     </div>
                     <svg class="stat-icon" fill="none" stroke="hsl(45, 95%, 60%)" stroke-width="2" viewBox="0 0 24 24">
@@ -456,10 +464,10 @@
             <div class="stat-card">
                 <div class="stat-card-content">
                     <div>
-                        <div class="stat-label">Taxa de Participação</div>
+                        <div class="stat-label" data-i18n="participationRate">Taxa de Participação</div>
                         <div class="stat-value">33%</div>
                         <div class="stat-trend" style="color: hsl(215, 20.2%, 65.1%);">
-                            13/39 jogadores ativos
+                            <span data-i18n="activePlayers">13/39 jogadores ativos</span>
                         </div>
                     </div>
                     <svg class="stat-icon" fill="none" stroke="hsl(142, 76%, 50%)" stroke-width="2" viewBox="0 0 24 24">
@@ -470,15 +478,15 @@
         </div>
 
         <div>
-            <div class="section-title">Registro de Participação</div>
-            <div class="section-subtitle">Dados detalhados de presença por jogador e tipo de evento</div>
+            <div class="section-title" data-i18n="attendanceRecord">Registro de Participação</div>
+            <div class="section-subtitle" data-i18n="detailedData">Dados detalhados de presença por jogador e tipo de evento</div>
 
             <div class="search-container">
                 <svg class="search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <circle cx="11" cy="11" r="8" />
                     <path stroke-linecap="round" d="m21 21-4.35-4.35" />
                 </svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Buscar jogador...">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar jogador..." data-i18n-placeholder="searchPlaceholder">
             </div>
 
             <div class="table-container">
@@ -498,10 +506,10 @@
         <!-- Jogadores Inativos Section -->
         <div style="margin-top: 4rem; animation: slideUp 0.6s ease-out 0.4s both;">
             <div class="section-title" style="color: hsl(0, 85%, 60%);">
-                ⚠️ Jogadores Inativos / AFK
+                <span data-i18n="inactivePlayers">⚠️ Jogadores Inativos / AFK</span>
             </div>
-            <div class="section-subtitle">
-                Jogadores com pontuação QUASE mínima ou que estão mais ausentes das atividades | Atualização toda segunda-feira.
+            <div class="section-subtitle" data-i18n="inactiveDescription">
+                Jogadores sem pontuação mínima ou que estão ausentes das atividades
             </div>
             
             <div class="table-container" style="background: linear-gradient(135deg, hsl(0, 40%, 8%) 0%, hsl(0, 30%, 12%) 100%); border-color: hsl(0, 40%, 20%);">
@@ -613,7 +621,34 @@
                         </div>
                     </div>
                     <div style="text-align: center; margin-top: 2rem; color: hsl(215, 20.2%, 65.1%); font-size: 0.875rem;">
-                        Total: 26 jogadores inativos
+                        <span data-i18n="totalInactive">Total: 26 jogadores inativos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Update Section -->
+        <div style="margin-top: 4rem; animation: slideUp 0.6s ease-out 0.5s both;">
+            <div class="section-title" style="color: hsl(142, 76%, 50%);">
+                📈 <span data-i18n="nextUpdate">Próxima atualização de participação</span>
+            </div>
+            <div class="section-subtitle" data-i18n="nextUpdateDescription">
+                Membros que estão ganhando mais visibilidade ou com tendência de aumento %.
+            </div>
+            
+            <div class="table-container" style="background: linear-gradient(135deg, hsl(142, 40%, 8%) 0%, hsl(142, 30%, 12%) 100%); border-color: hsl(142, 40%, 20%);">
+                <div style="padding: 2rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem;">
+                        <div style="padding: 1.5rem; background: hsl(142, 30%, 10%); border: 1px solid hsl(142, 40%, 18%); border-radius: 0.5rem;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                                <div style="width: 10px; height: 10px; background: hsl(142, 76%, 50%); border-radius: 50%; animation: pulse 2s infinite;"></div>
+                                <span style="color: hsl(142, 76%, 60%); font-size: 1rem; font-weight: 700;">Em breve - MẢEL e Chaos Sunny</span>
+                            </div>
+                            <p style="color: hsl(215, 20.2%, 75%); font-size: 0.875rem;">Atualizações em andamento...</p>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 2rem; color: hsl(215, 20.2%, 65.1%); font-size: 0.875rem;">
+                        <span data-i18n="comingSoon">Dados serão atualizados em breve com base nas últimas atividades</span>
                     </div>
                 </div>
             </div>
@@ -652,8 +687,87 @@
             { name: "Alb4ph1c4", icon: "healer", overall: 100, pvpServer: 100, pveServer: 100, pvpTorre: 0, pvpCima: 100, pvpQuadrado: 50, warVale: 100, defesaCristal: 100, scoutAlly: 0 },
             { name: "Chaos Sunny", icon: "assassin", overall: 70, pvpServer: 10, pveServer: 40, pvpTorre: 0, pvpCima: 10, pvpQuadrado: 0, warVale: 100, defesaCristal: 0, scoutAlly: 0 },
             { name: "ivanbulman19", icon: "knight", overall: 80, pvpServer: 50, pveServer: 40, pvpTorre: 0, pvpCima: 100, pvpQuadrado: 50, warVale: 100, defesaCristal: 100, scoutAlly: 0 },
-            { name: "ALEXBJ22", icon: "archer", overall: 80, pvpServer: 80, pveServer: 50, pvpTorre: 0, pvpCima: 100, pvpQuadrado: 80, warVale: 100, defesaCristal: 100, scoutAlly: 0 }
+            { name: "ALEXBJ22", icon: "archer", overall: 80, pvpServer: 80, pveServer: 50, pvpTorre: 0, pvpCima: 100, pvpQuadrado: 80, warVale: 100, defesaCristal: 100, scoutAlly: 0 },
+            // Linhas em branco para cadastro de novos usuários (não contabilizadas)
+            { name: "", icon: "warrior", overall: 0, pvpServer: 0, pveServer: 0, pvpTorre: 0, pvpCima: 0, pvpQuadrado: 0, warVale: 0, defesaCristal: 0, scoutAlly: 0, isBlank: true },
+            { name: "", icon: "warrior", overall: 0, pvpServer: 0, pveServer: 0, pvpTorre: 0, pvpCima: 0, pvpQuadrado: 0, warVale: 0, defesaCristal: 0, scoutAlly: 0, isBlank: true },
+            { name: "", icon: "warrior", overall: 0, pvpServer: 0, pveServer: 0, pvpTorre: 0, pvpCima: 0, pvpQuadrado: 0, warVale: 0, defesaCristal: 0, scoutAlly: 0, isBlank: true },
+            { name: "", icon: "warrior", overall: 0, pvpServer: 0, pveServer: 0, pvpTorre: 0, pvpCima: 0, pvpQuadrado: 0, warVale: 0, defesaCristal: 0, scoutAlly: 0, isBlank: true }
         ];
+
+        const translations = {
+            "pt-BR": {
+                title: "Lista de Presença - Clan NA21",
+                subtitle: "Acompanhe a participação dos membros do clan em todos os eventos e atividades",
+                totalPlayers: "Total de Jogadores",
+                activeInactive: "13 ativos • 26 inativos",
+                avgAttendance: "Presença Média",
+                vsLastMonth: "+5% vs mês anterior",
+                perfectAttendance: "100% Presença",
+                participationRate: "Taxa de Participação",
+                activePlayers: "13/39 jogadores ativos",
+                attendanceRecord: "Registro de Participação",
+                detailedData: "Dados detalhados de presença por jogador e tipo de evento",
+                searchPlaceholder: "Buscar jogador...",
+                inactivePlayers: "⚠️ Jogadores Inativos / AFK",
+                inactiveDescription: "Jogadores sem pontuação mínima ou que estão ausentes das atividades",
+                totalInactive: "Total: 26 jogadores inativos",
+                nextUpdate: "Próxima atualização de participação",
+                nextUpdateDescription: "Membros que estão ganhando mais visibilidade ou com tendência de aumento %.",
+                comingSoon: "Dados serão atualizados em breve com base nas últimas atividades",
+                player: "Jogador",
+                overall: "Geral",
+                showing: "Mostrando"
+            },
+            "es": {
+                title: "Lista de Asistencia - Clan NA21",
+                subtitle: "Seguimiento de la participación de los miembros del clan en todos los eventos y actividades",
+                totalPlayers: "Total de Jugadores",
+                activeInactive: "13 activos • 26 inactivos",
+                avgAttendance: "Asistencia Promedio",
+                vsLastMonth: "+5% vs mes anterior",
+                perfectAttendance: "100% Asistencia",
+                participationRate: "Tasa de Participación",
+                activePlayers: "13/39 jugadores activos",
+                attendanceRecord: "Registro de Participación",
+                detailedData: "Datos detallados de asistencia por jugador y tipo de evento",
+                searchPlaceholder: "Buscar jugador...",
+                inactivePlayers: "⚠️ Jugadores Inactivos / AFK",
+                inactiveDescription: "Jugadores sin puntuación mínima o ausentes de las actividades",
+                totalInactive: "Total: 26 jugadores inactivos",
+                nextUpdate: "Próxima actualización de participación",
+                nextUpdateDescription: "Miembros que están ganando más visibilidad o con tendencia de aumento %.",
+                comingSoon: "Los datos se actualizarán pronto según las últimas actividades",
+                player: "Jugador",
+                overall: "General",
+                showing: "Mostrando"
+            },
+            "en": {
+                title: "Attendance List - Clan NA21",
+                subtitle: "Track clan members' participation in all events and activities",
+                totalPlayers: "Total Players",
+                activeInactive: "13 active • 26 inactive",
+                avgAttendance: "Average Attendance",
+                vsLastMonth: "+5% vs last month",
+                perfectAttendance: "100% Attendance",
+                participationRate: "Participation Rate",
+                activePlayers: "13/39 active players",
+                attendanceRecord: "Attendance Record",
+                detailedData: "Detailed attendance data by player and event type",
+                searchPlaceholder: "Search player...",
+                inactivePlayers: "⚠️ Inactive Players / AFK",
+                inactiveDescription: "Players without minimum score or absent from activities",
+                totalInactive: "Total: 26 inactive players",
+                nextUpdate: "Next Participation Update",
+                nextUpdateDescription: "Members gaining more visibility or with upward trend %.",
+                comingSoon: "Data will be updated soon based on recent activities",
+                player: "Player",
+                overall: "Overall",
+                showing: "Showing"
+            }
+        };
+
+        let currentLanguage = "pt-BR";
 
         const columns = [
             { key: "name", label: "Jogador" },
@@ -702,9 +816,34 @@
             renderTable();
         }
 
+        function updateLanguage(lang) {
+            currentLanguage = lang;
+            const t = translations[lang];
+            
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (t[key]) {
+                    element.textContent = t[key];
+                }
+            });
+            
+            // Update placeholder
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput && t.searchPlaceholder) {
+                searchInput.placeholder = t.searchPlaceholder;
+            }
+            
+            // Update table headers
+            columns[0].label = t.player || "Jogador";
+            columns[1].label = t.overall || "Geral";
+            renderTableHeader();
+            renderTable();
+        }
+
         function filterAndSortData() {
-            let filtered = attendanceData.filter(player =>
-                player.name.toLowerCase().includes(searchTerm.toLowerCase())
+            let filtered = attendanceData.filter(player => 
+                !player.isBlank && player.name.toLowerCase().includes(searchTerm.toLowerCase())
             );
 
             filtered.sort((a, b) => {
@@ -726,6 +865,7 @@
         function renderTable() {
             const data = filterAndSortData();
             const tbody = document.getElementById("tableBody");
+            const t = translations[currentLanguage];
             
             tbody.innerHTML = data.map(player => {
                 const overallClass = getPercentageClass(player.overall);
@@ -762,8 +902,9 @@
                 `;
             }).join('');
 
+            const activeCount = attendanceData.filter(p => !p.isBlank).length;
             document.getElementById("resultCount").textContent = 
-                `Mostrando ${data.length} de ${attendanceData.length} jogadores`;
+                `${t.showing || "Mostrando"} ${data.length} de ${activeCount} jogadores`;
         }
 
         document.getElementById("searchInput").addEventListener("input", (e) => {
@@ -771,9 +912,28 @@
             renderTable();
         });
 
-        document.getElementById("lastUpdate").textContent = 
-            `Última atualização: ${new Date().toLocaleDateString('pt-BR')}`;
+        document.getElementById("languageSelector").addEventListener("change", (e) => {
+            updateLanguage(e.target.value);
+        });
 
+        function updateLastUpdateText() {
+            const lang = currentLanguage;
+            const date = new Date();
+            let dateStr = "";
+            
+            if (lang === "pt-BR") {
+                dateStr = date.toLocaleDateString('pt-BR');
+                document.getElementById("lastUpdate").textContent = `Última atualização: ${dateStr}`;
+            } else if (lang === "es") {
+                dateStr = date.toLocaleDateString('es-ES');
+                document.getElementById("lastUpdate").textContent = `Última actualización: ${dateStr}`;
+            } else {
+                dateStr = date.toLocaleDateString('en-US');
+                document.getElementById("lastUpdate").textContent = `Last update: ${dateStr}`;
+            }
+        }
+
+        updateLastUpdateText();
         renderTableHeader();
         renderTable();
     </script>
