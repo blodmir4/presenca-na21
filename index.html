@@ -379,11 +379,173 @@
             margin-top: 1.5rem;
         }
 
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .tip-btn {
+            background: linear-gradient(135deg, hsl(45, 95%, 60%), hsl(45, 95%, 50%));
+        }
+
+        .donation-btn {
+            background: linear-gradient(135deg, hsl(0, 85%, 60%), hsl(0, 85%, 50%));
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, hsl(240, 8%, 12%) 0%, hsl(240, 10%, 16%) 100%);
+            border: 2px solid hsl(240, 10%, 25%);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-icon {
+            font-size: 2.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: hsl(210, 40%, 98%);
+        }
+
+        .modal-body {
+            color: hsl(215, 20.2%, 75%);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .modal-body strong {
+            color: hsl(210, 40%, 98%);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: hsl(240, 10%, 20%);
+            color: hsl(210, 40%, 98%);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: hsl(0, 85%, 60%);
+            transform: rotate(90deg);
+        }
+
+        .modal-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .modal-list li {
+            margin: 0.5rem 0;
+        }
+
+        .highlight-text {
+            color: hsl(142, 76%, 50%);
+            font-weight: 600;
+        }
+
+        .warning-text {
+            color: hsl(0, 85%, 60%);
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             h2 { font-size: 1.5rem; }
             .stats-grid { grid-template-columns: 1fr; }
             .table-wrapper { overflow-x: scroll; }
+            
+            .floating-buttons {
+                bottom: 1rem;
+                right: 1rem;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+                max-width: 95%;
+            }
         }
     </style>
 </head>
@@ -642,7 +804,7 @@
                         <div style="padding: 1.5rem; background: hsl(142, 30%, 10%); border: 1px solid hsl(142, 40%, 18%); border-radius: 0.5rem;">
                             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
                                 <div style="width: 10px; height: 10px; background: hsl(142, 76%, 50%); border-radius: 50%; animation: pulse 2s infinite;"></div>
-                                <span style="color: hsl(142, 76%, 60%); font-size: 1rem; font-weight: 700;">Em breve - MẢEL e Chaos Sunny</span>
+                                <span style="color: hsl(142, 76%, 60%); font-size: 1rem; font-weight: 700;">Em breve: MẢEL, Chaos Sunny e 3forge9stone </span>
                             </div>
                             <p style="color: hsl(215, 20.2%, 75%); font-size: 0.875rem;">Atualizações em andamento...</p>
                         </div>
@@ -658,6 +820,68 @@
             <div class="status-badge">
                 <div class="status-indicator"></div>
                 <span class="status-text" id="lastUpdate"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <button class="floating-btn tip-btn" onclick="openModal('tipModal')" title="Dicas de Atividade">
+            💡
+        </button>
+        <button class="floating-btn donation-btn" onclick="openModal('donationModal')" title="Aviso de Doação">
+            🪙
+        </button>
+    </div>
+
+    <!-- Tip Modal -->
+    <div id="tipModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('tipModal')">×</button>
+            <div class="modal-header">
+                <span class="modal-icon">💡</span>
+                <h3 class="modal-title">Dica: Como melhorar sua % de atividade?</h3>
+            </div>
+            <div class="modal-body">
+                <p>Para ser mais ativo no clã, participe das seguintes atividades:</p>
+                <ul class="modal-list">
+                    <li><span class="highlight-text">PvP Server</span></li>
+                    <li><span class="highlight-text">PvP Torre</span></li>
+                    <li><span class="highlight-text">PvP SP e MS</span></li>
+                    <li><span class="highlight-text">War Vale</span></li>
+                    <li><span class="highlight-text">Defesa do Cristal</span></li>
+                    <li><span class="highlight-text">Doações</span></li>
+                    <li><span class="highlight-text">Guerra de Clã</span></li>
+                    <li><span class="highlight-text">Scout Ally</span></li>
+                </ul>
+                <p style="margin-top: 1rem;">
+                    Assim, você aumenta suas chances de conquistar benefícios nas guerras e fortalecer sua posição no clã.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Donation Modal -->
+    <div id="donationModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('donationModal')">×</button>
+            <div class="modal-header">
+                <span class="modal-icon">🪙</span>
+                <h3 class="modal-title" style="color: hsl(0, 85%, 60%);">Atenção - Doação de Gold!</h3>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                    <strong class="warning-text">⚠️ IMPORTANTE:</strong>
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    Procurem o <strong>Cl3opa</strong> ou o <strong>77PEPINO</strong> para comprar os itens de expedição até <strong class="warning-text">SEXTA-FEIRA</strong>.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <strong class="warning-text">Quem não comprar será expulso no sábado, após o reset!</strong>
+                </p>
+                <p style="padding: 1rem; background: hsl(240, 10%, 14%); border-radius: 0.5rem; border-left: 4px solid hsl(45, 95%, 60%);">
+                    💬 Se eles estiverem offline, peça para o <strong>Blood</strong> avisar.
+                </p>
             </div>
         </div>
     </div>
@@ -936,6 +1160,35 @@
         updateLastUpdateText();
         renderTableHeader();
         renderTable();
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
     </script>
 </body>
 </html>
